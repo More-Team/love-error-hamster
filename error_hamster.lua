@@ -1,3 +1,5 @@
+local img = love.graphics.newImage("error.jpg")
+
 function love.errorhandler(msg)
 	msg = tostring(msg)
 
@@ -72,7 +74,7 @@ function love.errorhandler(msg)
 		if not love.graphics.isActive() then return end
 		local pos = 70
 		love.graphics.clear(89/255, 157/255, 220/255)
-    love.graphics.draw(love.graphics.newImage("error.jpg"), 0, 0, 0, love.graphics.getWidth() / 512, love.graphics.getHeight() / 512)
+    love.graphics.draw(img, 0, 0, 0, love.graphics.getWidth() / 512, love.graphics.getHeight() / 512)
 		love.graphics.printf(p, pos, pos, love.graphics.getWidth() - pos)
 		love.graphics.present()
 	end
