@@ -1,4 +1,9 @@
+local utf8 = require("utf8")
 local img = love.graphics.newImage("error.jpg")
+
+local function error_printer(msg, layer)
+	print((debug.traceback("Error: " .. tostring(msg), 1+(layer or 1)):gsub("\n[^\n]+$", "")))
+end
 
 function love.errorhandler(msg)
 	msg = tostring(msg)
